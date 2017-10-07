@@ -22,6 +22,21 @@ def read_and_clean_data(path):
         lower_words = map(lambda x: x.lower(),punc_rem.split())
 
     return lower_words
+corpus = []
+count = []
+words = []
+folders = [ "pos", "neg"]
+for folder in folders:
+    for path in glob.glob(folder + "/*.txt"):
+
+        words += read_and_clean_data(path)
+        if len(words)> vocabulary_size*3:
+            break
+    else:
+        continue
+    break
+
+count = Counter(words)
 
 data, count, dictionary, reverse_dictionary = get_dataset(vocabulary_size)
 
