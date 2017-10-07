@@ -14,6 +14,14 @@ from imdb_sentiment_data import get_dataset
 from word2vec_fns import generate_batch, get_mean_context_embeds
 
 vocabulary_size = 50000
+def read_and_clean_data(path):
+
+    with open(path,"r") as o:
+        text = o.read()
+        punc_rem = text.translate(None, punctuation)
+        lower_words = map(lambda x: x.lower(),punc_rem.split())
+
+    return lower_words
 
 data, count, dictionary, reverse_dictionary = get_dataset(vocabulary_size)
 
