@@ -41,6 +41,8 @@ unique_words = sorted(count.keys())
 idxs = range(len(count.keys()))
 
 data, count, dictionary, reverse_dictionary = get_dataset(vocabulary_size)
+reverse_dictionary = dict(zip(unique_words, idxs))
+dictionary = dict(zip(idxs, unique_words))
 
 #print('Most common words (+UNK)', count[:5])
 #print('Sample data', data[:10], [reverse_dictionary[i] for i in data[:10]])
