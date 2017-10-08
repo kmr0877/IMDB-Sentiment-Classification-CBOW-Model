@@ -48,6 +48,7 @@ dictionary = dict(zip(idxs, unique_words))
 #print('Sample data', data[:10], [reverse_dictionary[i] for i in data[:10]])
 
 # sanity check the batches
+batch_size = 2
 check_skip_window = 2      # How many words to consider left and right.
 batch, labels = generate_batch(data, batch_size=8, skip_window=check_skip_window)
 for i in range(8):
@@ -56,7 +57,7 @@ for i in range(8):
 
 # Step 4: Build and train a skip-gram model.
 
-batch_size = 128
+batch_size = 2
 embedding_size = 100  # Dimension of the embedding vector.
 skip_window = 1       # How many words to consider left and right.
 
