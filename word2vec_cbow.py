@@ -18,6 +18,7 @@ def read_and_clean_data(path):
 
     with open(path,"r") as o:
         text = o.read()
+        
         punc_rem = text.translate(str.maketrans('','', punctuation))
  #       punc_rem = text.translate(None, punctuation)
         lower_words = map(lambda x: x.lower(),punc_rem.split())
@@ -31,7 +32,7 @@ for folder in folders:
     for path in glob.glob(folder + "/*.txt"):
 
         words += read_and_clean_data(path)
-        if len(words)> vocabulary_size*3:
+        if len(set(words))> vocabulary_size:
             break
     else:
         continue
