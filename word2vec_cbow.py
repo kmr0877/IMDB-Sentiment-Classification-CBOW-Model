@@ -18,7 +18,8 @@ def read_and_clean_data(path):
 
     with open(path,"r") as o:
         text = o.read()
-        punc_rem = text.translate(None, punctuation)
+        punc_rem = text.translate(str.maketrans('','', punctuation))
+ #       punc_rem = text.translate(None, punctuation)
         lower_words = map(lambda x: x.lower(),punc_rem.split())
 
     return lower_words
