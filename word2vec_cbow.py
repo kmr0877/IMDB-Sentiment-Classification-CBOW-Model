@@ -150,7 +150,7 @@ with tf.Session(graph=graph) as session:
 
         # We perform one update step by evaluating the optimizer op (including it
         # in the list of returned values for session.run()
-        _, loss_val = session.run([optimizer, loss], feed_dict=feed_dict)
+              _, loss_val = session.run([optimizer, loss], feed_dict=feed_dict)
         average_loss += loss_val
 
         if step % 2000 == 0:
@@ -164,12 +164,12 @@ with tf.Session(graph=graph) as session:
         if step % 10000 == 0:
             sim = similarity.eval()
             for i in range(valid_size):
-                valid_word = reverse_dictionary[valid_examples[i]]
+                valid_word = dictionary[valid_examples[i]]
                 top_k = 8  # number of nearest neighbors
                 nearest = (-sim[i, :]).argsort()[1:top_k + 1]
                 log_str = 'Nearest to %s:' % valid_word
                 for k in range(top_k):
-                    close_word = reverse_dictionary[nearest[k]]
+                    close_word = dictionary[nearest[k]]
                     log_str = '%s %s,' % (log_str, close_word)
                 print(log_str)
             np.save("CBOW_Embeddings", normalized_embeddings.eval())
@@ -177,3 +177,4 @@ with tf.Session(graph=graph) as session:
 
     final_embeddings = normalized_embeddings.eval()
     np.save("CBOW_Embeddings", final_embeddings)
+
