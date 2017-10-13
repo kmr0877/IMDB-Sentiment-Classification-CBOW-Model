@@ -139,9 +139,14 @@ with tf.Session(graph=graph) as session:
     print('Initialized')
 
     average_loss = 0
-    for step in xrange(num_steps):
+    for step in range(num_steps):
         batch_inputs, batch_labels = generate_batch(data, batch_size, skip_window)
-        feed_dict = {train_inputs: batch_inputs, train_labels: batch_labels}
+        n_batch_inputs = []
+        n_batch_labels = []
+        for i in range(batch_size):
+            n_batch_inputs.append([reverse_dictionary[batch_inputs[i, j]] for j in range(skip_window * 2)])
+            n_batch_labels.append([reverse_dictionary[labels[i, 0]]])
+        feed_dict = {train_inputs: n_batch_inputs, train_labels: n_batch_labels}
 
         # We perform one update step by evaluating the optimizer op (including it
         # in the list of returned values for session.run()
