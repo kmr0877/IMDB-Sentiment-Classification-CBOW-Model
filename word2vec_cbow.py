@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import math
 import random
+import re
 
 import numpy as np
 from six.moves import urllib
@@ -15,13 +16,16 @@ from word2vec_fns import generate_batch, get_mean_context_embeds
 
 vocabulary_size = 50000
 def read_and_clean_data(path):
-
+    
     with open(path,"r") as o:
+        
         text = o.read()
         
-        punc_rem = text.translate(str.maketrans(",", punctuation))
+        
+       # punc_rem = text.translate(str.maketrans(",", punctuation))
  #       punc_rem = text.translate(None, punctuation)
-        lower_words = map(lambda x: x.lower(),punc_rem.split())
+       punc_rem = re.sub(r'[^\w\s]', '', text)
+       lower_words = map(lambda x: x.lower(),punc_rem.split())
 
     return lower_words
 corpus = []
