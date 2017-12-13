@@ -1,3 +1,5 @@
+
+#written by kmr0877 for comp9444
 import tensorflow as tf
 import numpy as np
 from string import punctuation
