@@ -16,9 +16,9 @@ A good introduction to word embeddings can be found in the TensorFlow word2vec t
 
 The aim of this task is to modify the code here(https://github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) so that it uses the continuous bag of words (CBOW) model instead of the skip-gram model. This will produce better embeddings, particularly when less data is available. Furthermore, implementing this change will give us a better understanding of both models, and the differences between them.
 
-CBOW vs Skip-gram
+## _CBOW vs Skip-gram_
 
-Input-Output
+## Input-Output
 
 The main difference between the skip-gram and CBOW model, is the way training data is presented.
 
@@ -39,3 +39,9 @@ While for CBOW the input-output pairs are (note that the inputs now contain more
 [sat on the]: ([sat the], on)
 
 Of course, as is explained in the tutorial, the words themselves aren't actually used, but rather their (integer) index into the vocabulary (dictionary) for the task.
+
+## CBOW Input: Mean of Context Words Embeddings
+
+In the skip-gram model there is just a single word as the input, and this word's embedding is looked up, and passed to the predictor.
+
+In the CBOW, since there's more than one word in the context we just take the mean (average) of the embeddings for all context words 
