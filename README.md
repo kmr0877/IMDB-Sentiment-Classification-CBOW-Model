@@ -73,9 +73,27 @@ you should be able to see a low dimensional visualisation of the embeddings crea
 ## Stage 2: Sentiment Classifier
 
 implementation.py - RNN classifier implementation
+
 train.py	- file that calls implementation.py and trains our sentiment model
 
 You will also need to download the file glove.6B.50d.txt.gz and gunzip it. If you are running on the Lab machines, you could use the copy of glove.6B.50d.txt in the class account by uncommenting this line in implementation.py (and commenting out the line above it)
 data = open("/home/cs9444/public_html/17s2/hw2/glove.6B.50d.txt",'r',encoding="utf-8")
 
 I have made use of recurrent network elements . Aside from the fact that this is the type of network this assessment aims to assess, for text classification some recurrency will be important. Consider the review fragment; "I really thought this was a great example of how not to make a movie.". A naive classifier (e.g. a feed forward network trained on word counts) would be unable to correctly identify the sentiment as it depends on the tail end of the review being understood in the context of the "not" negation. Recurrent units allow us to preserve this dependency as we parse the review.
+
+## Visualizing Your Progress
+
+In addition to the output of  train.py, you can view the progress of your models using the tensorboard logging included in that file. To view these logs, run the following command from the src directory:
+
+python3 -m tensorflow.tensorboard --logdir=./tensorboard
+
+Depending on your installation, the following command might also work:
+
+tensorboard --logdir=./tensorboard
+
+open a Web browser and navigate to  http://localhost:6006
+
+you should be able to see a plot of the loss and accuracies in TensorBoard under the "scalars" tab
+
+Make sure you are in the same directory from which train.py is running. A good resource is here(https://www.tensorflow.org/get_started/summaries_and_tensorboard) for more information.
+
