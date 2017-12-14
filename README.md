@@ -46,7 +46,7 @@ In the skip-gram model there is just a single word as the input, and this word's
 
 In the CBOW, since there's more than one word in the context we just take the mean (average) of the embeddings for all context words 
 
-## Codes
+## Testing and Implementatio
 
 word2vec_fns.py	- word2vec implementation
 word2vec_cbow.py - code to train our word2vec model
@@ -63,3 +63,19 @@ You can run the code that does the embeddings with:
 python3 word2vec_cbow.py
 
 If this completes without error, you should see a file called CBOW_Embeddings.npy in the current directory.
+
+Additionally, if you run
+
+python3 plot_embeddings.py
+
+you should be able to see a low dimensional visualisation of the embeddings created with TSNE. Don't worry if you are unable to get the visualisation running.( you may need to use pip3 in order to get matplotlib installed correctly).
+
+## Stage 2: Sentiment Classifier
+
+implementation.py - RNN classifier implementation
+train.py	- file that calls implementation.py and trains our sentiment model
+
+You will also need to download the file glove.6B.50d.txt.gz and gunzip it. If you are running on the Lab machines, you could use the copy of glove.6B.50d.txt in the class account by uncommenting this line in implementation.py (and commenting out the line above it)
+data = open("/home/cs9444/public_html/17s2/hw2/glove.6B.50d.txt",'r',encoding="utf-8")
+
+I have made use of recurrent network elements . Aside from the fact that this is the type of network this assessment aims to assess, for text classification some recurrency will be important. Consider the review fragment; "I really thought this was a great example of how not to make a movie.". A naive classifier (e.g. a feed forward network trained on word counts) would be unable to correctly identify the sentiment as it depends on the tail end of the review being understood in the context of the "not" negation. Recurrent units allow us to preserve this dependency as we parse the review.
