@@ -45,3 +45,21 @@ Of course, as is explained in the tutorial, the words themselves aren't actually
 In the skip-gram model there is just a single word as the input, and this word's embedding is looked up, and passed to the predictor.
 
 In the CBOW, since there's more than one word in the context we just take the mean (average) of the embeddings for all context words 
+
+## Codes
+
+word2vec_fns.py	- word2vec implementation
+word2vec_cbow.py - code to train our word2vec model
+imdb_sentiment_data.py - helper functions for loading the sentiment data, used by word2vec_cbow
+plot_embeddings.py	- to visualise embeddings
+
+The file ## word2vec_fns.py  contains two functions:
+
+generate_batch(...) which is initially identical to the function in https://github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/examples/tutorials/word2vec/word2vec_basic.py, with just one change, the num_skips parameter has been removed as it is not needed in the CBOW regime.
+get_mean_context_embeds(...)
+
+You can run the code that does the embeddings with:
+
+python3 word2vec_cbow.py
+
+If this completes without error, you should see a file called CBOW_Embeddings.npy in the current directory.
