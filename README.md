@@ -97,3 +97,11 @@ you should be able to see a plot of the loss and accuracies in TensorBoard under
 
 Make sure you are in the same directory from which train.py is running. A good resource is here(https://www.tensorflow.org/get_started/summaries_and_tensorboard) for more information.
 
+
+## Results
+
+On running the programs the results achieved are as follows:
+
+In the process of constructing word embeddings,on the start you should be able to see 
+
+
