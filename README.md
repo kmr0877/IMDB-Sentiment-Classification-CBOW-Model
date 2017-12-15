@@ -100,8 +100,24 @@ Make sure you are in the same directory from which train.py is running. A good r
 
 ## Results
 
-On running the programs the results achieved are as follows:
+During the training/testing stage,few of the observations are shown below
 
-In the process of constructing word embeddings,on the start you should be able to see 
+Average loss at the start
+
+<img width="640" alt="screen shot 2017-12-15 at 11 10 42 am" src="https://user-images.githubusercontent.com/26761582/34027008-067949f4-e1ae-11e7-8e87-a74b6c7e034f.png">
+
+Average loss after 20000 steps
+
+<img width="888" alt="screen shot 2017-12-15 at 11 28 16 am" src="https://user-images.githubusercontent.com/26761582/34027033-2d4ca198-e1ae-11e7-8423-04f393c9f46e.png">
+
+Average loss at the end is almost close to 0.
+
+To be precise 0.0001 which is quite decent performance from the model
+
+<img width="852" alt="screen shot 2017-12-15 at 12 44 18 pm" src="https://user-images.githubusercontent.com/26761582/34027045-41f9fdfc-e1ae-11e7-9375-6e46fa14b120.png">
+
+During the Training stage the highest accuracy achieved was about 96% and ended at an average of about 84% after 100000 training iterations
+
+<img width="805" alt="screen shot 2017-12-15 at 2 18 52 pm" src="https://user-images.githubusercontent.com/26761582/34027052-5b484642-e1ae-11e7-80db-3f898024f9c5.png">
 
 
